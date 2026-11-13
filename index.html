@@ -16,7 +16,364 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+    
+/* =========================================
+   BLUE + BEIGE GEOMETRIC DESIGN THEME
+   ========================================= */
+
+:root {
+    --purple: #51417F;
+    --violet: #7568B8;
+    --periwinkle: #9AA8E8;
+    --sky: #B9DDF2;
+    --blue: #4778C8;
+    --navy: #172D59;
+
+    --beige: #E8DCC8;
+    --sand: #F1E9DC;
+    --ivory: #F7F3EA;
+
+    --text: #263653;
+    --muted: #69758A;
+    --border: #E5DFD4;
+}
+
+/* PAGE BACKGROUND */
+
+body {
+    background-color: var(--ivory);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+
+    background-image:
+        linear-gradient(rgba(81,65,127,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(71,120,200,.035) 1px, transparent 1px);
+
+    background-size: 42px 42px;
+}
+
+/* SUBTLE GEOMETRIC PATTERNS:
+   squares, triangles and rhombuses */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Crect x='14' y='16' width='30' height='30' fill='none' stroke='%237568B8' stroke-opacity='.13' stroke-width='1.5'/%3E%3Cpath d='M112 18 L130 49 L94 49 Z' fill='%239AA8E8' fill-opacity='.13'/%3E%3Cpath d='M34 112 L54 132 L34 152 L14 132 Z' fill='%23B9DDF2' fill-opacity='.20'/%3E%3Cpath d='M116 105 L150 105 L150 139 L116 139 Z' fill='none' stroke='%23E8DCC8' stroke-opacity='.45' stroke-width='2'/%3E%3C/svg%3E");
+
+    background-size: 180px 180px;
+    opacity: .8;
+}
+
+/* HEADER */
+
+header {
+    background: rgba(247,243,234,.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(14px);
+}
+
+.logo {
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+nav a {
+    color: var(--navy);
+    font-weight: 600;
+    transition: color .25s ease;
+}
+
+nav a:hover {
+    color: var(--violet);
+}
+
+/* HERO SECTION */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 65vh;
+    padding: 75px 42px;
+    margin: 32px 0 55px;
+
+    background: linear-gradient(
+        120deg,
+        #EEE9F7 0%,
+        #E8EFFB 52%,
+        #F1E8D9 100%
+    );
+
+    border: 1px solid rgba(117,104,184,.16);
+    border-radius: 18px;
+}
+
+/* DECORATIVE TRIANGLE */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -55px;
+    right: 12%;
+    width: 190px;
+    height: 190px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(154,168,232,.30),
+        rgba(71,120,200,.08)
+    );
+
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* DIGITAL DESIGNER WATERMARK */
+
+.hero::after {
+    content: "DIGITAL DESIGNER";
+    position: absolute;
+    z-index: -1;
+    right: 25px;
+    bottom: 22px;
+
+    color: rgba(23,45,89,.075);
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(2.4rem, 7vw, 6.5rem);
+    font-weight: 700;
+    letter-spacing: .045em;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 1;
+}
+
+/* HERO TYPOGRAPHY */
+
+.eyebrow {
+    color: var(--purple);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: var(--navy);
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 600;
+    letter-spacing: -.035em;
+}
+
+.tagline {
+    color: var(--violet);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+}
+
+/* BUTTONS */
+
+.button {
+    background: linear-gradient(
+        110deg,
+        var(--purple),
+        var(--blue)
+    );
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 5px;
+    padding: 13px 23px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    box-shadow: 0 7px 18px rgba(71,120,200,.18);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.button:hover {
+    background: linear-gradient(
+        110deg,
+        var(--navy),
+        var(--purple)
+    );
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(23,45,89,.2);
+}
+
+/* CONTENT SECTIONS */
+
+section.content {
+    padding: 58px 0;
+    border-top: 1px solid var(--border);
+}
+
+h2 {
+    color: var(--navy);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+/* SMALL CHAMPAGNE-BLUE ACCENT LINE */
+
+section.content h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background: linear-gradient(
+        90deg,
+        var(--violet),
+        var(--sky)
+    );
+}
+
+.copy,
+article p {
+    color: var(--muted);
+}
+
+/* PROJECT CARDS */
+
+article {
+    background: rgba(255,255,255,.88);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 7px 24px rgba(23,45,89,.045);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+article:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 32px rgba(23,45,89,.11);
+    border-color: rgba(117,104,184,.38);
+}
+
+.project-image {
+    background: linear-gradient(
+        135deg,
+        #F1EDF7,
+        #EAF2FA,
+        #F3EBDD
+    );
+}
+
+.project-copy h3 {
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+}
+
+/* CONTACT SECTION */
+
+#contact {
+    position: relative;
+    overflow: hidden;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    padding: 48px 38px;
+
+    background: linear-gradient(
+        120deg,
+        #172D59,
+        #34366E 65%,
+        #51417F
+    );
+
+    border: none;
+    border-radius: 16px;
+    color: white;
+}
+
+#contact .eyebrow {
+    color: #C9C7F2;
+}
+
+#contact h2 {
+    color: #fff;
+}
+
+#contact h2::after {
+    background: linear-gradient(
+        90deg,
+        #C9B99E,
+        #B9DDF2
+    );
+}
+
+#contact .copy,
+#contact p {
+    color: #E0E5F0;
+}
+
+.contact-email {
+    color: #D8C9AC;
+}
+
+#contact .button {
+    background: var(--ivory);
+    color: var(--navy);
+    box-shadow: none;
+}
+
+#contact .button:hover {
+    background: var(--sky);
+}
+
+/* FOOTER */
+
+footer {
+    background: rgba(232,220,200,.30);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+footer a {
+    color: var(--purple);
+    font-weight: 700;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: auto;
+        padding: 48px 24px;
+        margin-top: 20px;
+    }
+
+    .hero::after {
+        right: 12px;
+        bottom: 12px;
+        font-size: 2.1rem;
+    }
+
+    .hero::before {
+        width: 120px;
+        height: 120px;
+        right: 4%;
+    }
+
+    #contact {
+        padding: 38px 24px;
+    }
+
+}
+<style>
 
         /* GENERAL STYLING */
 
