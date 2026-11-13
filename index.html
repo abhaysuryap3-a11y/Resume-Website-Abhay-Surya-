@@ -17,7 +17,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-
     
 <style>
 
@@ -78,6 +77,37 @@ header {
     background: rgba(247,243,234,.92);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(14px);
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav a {
+    color: #252653;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header nav a:hover {
+    color: #62558F;
 }
 
 .logo {
@@ -86,7 +116,13 @@ header {
     font-weight: 800;
     letter-spacing: -1px;
 }
-
+<nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+    </ul>
+</nav>
 nav a {
     color: var(--navy);
     font-weight: 600;
@@ -212,7 +248,53 @@ h1 {
     transform: translateY(-3px);
     box-shadow: 0 10px 22px rgba(23,45,89,.2);
 }
+body {
+    background: #FAF8F3;
+    color: #252653;
+}
 
+header {
+    background: rgba(250, 248, 243, 0.96);
+    border-bottom: 1px solid #E9E0D0;
+}
+
+h1, h2, h3 {
+    color: #252653;
+}
+
+.tagline {
+    color: #62558F;
+}
+
+.eyebrow {
+    color: #62558F;
+}
+
+.project-card {
+    background: #FFFFFF;
+    border-color: #E9E0D0;
+}
+
+button, .btn {
+    background: #252653;
+    color: #FFFFFF;
+    border: 1px solid #252653;
+}
+
+button:hover, .btn:hover {
+    background: #62558F;
+    border-color: #62558F;
+}
+
+#contact {
+    background: #252653;
+    color: #FAF8F3;
+}
+
+#contact h2,
+#contact p {
+    color: #FAF8F3;
+}
 /* CONTENT SECTIONS */
 
 section.content {
@@ -349,7 +431,37 @@ footer a {
     color: var(--purple);
     font-weight: 700;
 }
+/* Portfolio layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
 
+/* Project cards */
+.project-card {
+    background: #FFFFFF;
+    border: 1px solid #E9E0D0;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 12px;
+}
+
+/* Square image area */
+.project-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    background: #F2EEE6;
+    border-radius: 8px;
+}
+
+/* Project description */
+.project-copy {
+    padding: 15px 5px 5px;
+}
 /* MOBILE RESPONSIVENESS */
 
 @media (max-width: 700px) {
@@ -374,6 +486,24 @@ footer a {
 
     #contact {
         padding: 38px 24px;
+    }
+
+@media (max-width: 700px) {
+
+    /* Existing mobile styles */
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    header nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
     }
 
 }
